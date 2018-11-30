@@ -36,8 +36,6 @@ void function () {
 	let limit = 10
 	let index = 0
 
-	let timeouts = []
-
 	let getRandom = items =>
 		items[Math.floor(Math.random() * items.length)]
 
@@ -61,28 +59,27 @@ void function () {
 		"🥑"
 	]
 
-	let createTrailer = (x, y) => {
+	let createTrailer = (mouseX, mouseY) => {
 		let trailer = document.createElement("trail")
 		trailer.textContent = getRandom(trailers)
 		with (trailer.style) {
 			position = "absolute"
 			zIndex = 100000000000000000000
-			left = `${x}px`
-			top = `${y}px`
+			top = 0
+			left = 0
+			transform = `translate(${mouseX}px, ${mouseY}px)`
 			fontSize = `${spacing}px`
 		}
 		return trailer
 	}
 
 	let trail = (x, y) => {
-		let trailer = createTrailer(x, y, index++)
+		let trailer = createTrailer(x, y)
 		document.body.append(trailer)
 
-		clearTimeout(timeouts[index])
+		setTimeout(() => trailer.remove(), timeout)
 
-		timeouts[index] = setTimeout(() => trailer.remove(), timeout)
-
-		if (index > limit) {
+		if (index++ > limit) {
 			index = 0
 		}
 	}
@@ -91,17 +88,20 @@ void function () {
 		let x = event.pageX
 		let y = event.pageY
 
+		let limitX = spacing + lastX
+		let limitY = spacing + lastY
+
 		if (
-			x > lastX + spacing ||
-			x < lastX - spacing ||
-			y > lastY + spacing ||
-			y < lastY - spacing
+			x > limitX ||
+			x < limitX ||
+			y > limitY ||
+			y < limitY
 		) {
-			trail(
-				lastX = x,
-				lastY = y
-			)
+			trail(x, y)
 		}
+
+		lastX = x,
+		lastY = y
 	}
 
 	window.addEventListener("mousemove", handleMouseMovement)
@@ -128,7 +128,6 @@ void function () {
 
 	let getRandomLeaf = () => {
 		let element = document.createElement("leaf")
-		element.textContent = getRandom(leafmoji)
 		with (element) {
 			textContent = getRandom(leafmoji)
 			with (style) {
