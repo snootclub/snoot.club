@@ -73,8 +73,8 @@
 		border: 2px dashed currentColor;
 		padding: 2em;
 		display: inline-block;
-		z-index: 1;
 		background: white;
+		z-index: 0;
 	}
 
 	dl {
@@ -142,17 +142,14 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		pointer-events: none;
 		font-size: 2em;
 		opacity: 0;
 	}
 
 	trail {
 		position: absolute;
-		z-index: 0;
-		top: 0;
-		left: 0;
-		pointer-events: none;
+		top: 10px;
+		left: 10px;
 		font-size: 40px;
 		transform: scale(0.1);
 		transition: transform .2s linear, opacity 0.5s ease;
@@ -258,9 +255,14 @@ void function () {
 		":)"
 	]
 
+	let rando = (from, to) =>
+		(Math.random() * (to - from) | 0) + from
+
 	let createTrailer = () => {
 		let trailer = document.createElement("trail")
 		trailer.textContent = getRandom(trailers)
+		trailer.style.top = rando(10, 22)
+		trailer.style.left = rando(10, 22)
 		return trailer
 	}
 
