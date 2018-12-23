@@ -8,36 +8,170 @@
 	}
 
 	body {
+		text-align: center;
 		background: #ffeeee;
 		color: #ee4466;
-		font-family: sans-serif;
+		font-family: avenir next, sans-serif;
+		font-size: 2em;
+		line-height: 1.4em;
+		width: 80%;
+		margin: auto;
+		padding: 1em;
+	}
+
+	.header {
+		text-shadow: -2px 2px 2px #ffee66;
+	}
+
+	.header p {
+		color: #ee6688;
+		margin-top: 0;
+		font-size: 0.75em;
+	}
+
+	h1 {
+		margin-bottom: 0;
+	}
+
+	dt a {
+		text-decoration: none;
+		font-weight: bold;
+		color: #444;
+	}
+
+	dt a:before {
+		content: "";
+		display: inline-block;
+		vertical-align: middle;
+		width: 1em;
+		height: 1em;
+		background-image: url("https://snoot.club/favicon.ico");
+		background-size: contain;
+		position: absolute;
+		left: -1.4em;
+	}
+
+	dt a[href^="https://abe."]:before {
+		background-image: url("https://abe.snoot.club/favicon.ico");
+	}
+
+	dt a[href^="https://chee."]:before {
+		background-image: url("https://chee.snoot.club/favicon.ico");
+	}
+
+	dt a[href^="https://rowan."]:before {
+		background-image: url("https://rowan.snoot.club/favicon.ico");
+	}
+
+	dd a {
+		color: #abe;
+	}
+
+	main {
+		margin-top: 1em;
+		border: 2px dashed currentColor;
+		padding: 2em;
+		display: inline-block;
+		z-index: 0;
+		background: white;
+	}
+
+	dl {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	dt {
+		text-align: right;
+		position: relative;
+	}
+
+	dd {
+		text-align: left;
+	}
+
+	#leafs {
+		position: absolute;
+		overflow: hidden;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+	}
+
+	leaf {
+		position: absolute;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+		font-size: 2em;
+		opacity: 0;
+	}
+
+	trail {
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+		font-size: 40px;
+		transform: scale(0.1);
+		transition: transform .2s linear, opacity 0.5s ease;
 	}
 </style>
-<header>
-		<h1>snootclub</h1>
-		<p>
-			<em>you am snoot</em>
-		</p>
+<header class="header">
+	<h1>snoot.club</h1>
+	<p>
+		<em>where you am snoot</em>
+	</p>
 </header>
 
 <main>
-	<ul>
-			<li><a href="https://abe.snoot.club">
+	<header>
+		<h2>sites in this webring</h2>
+	</header>
+	<dl>
+		<dt>
+			<a href="https://abe.snoot.club">
 				abe's shop
 			</a>
-			<li><a href="https://chee.snoot.club">
-				chee's contents
+		</dt>
+		<dd>
+			<a href="https://abe.snoot.club">
+				abe.snoot.club
 			</a>
-			<li><a href="https://rowan.snoot.club">
-				rowan's personal web page
+		</dd>
+		<dt>
+			<a href="https://chee.snoot.club">
+				chee's boops and deets
 			</a>
-	</ul>
+		</dt>
+		<dd>
+			<a href="https://chee.snoot.club">
+				chee.snoot.club
+			</a>
+		</dd>
+		<dt>
+			<a href="https://rowan.snoot.club">
+				rowan's personal website
+			</a>
+		</dt>
+		<dd>
+			<a href="https://rowan.snoot.club">
+				rowan.snoot.club
+			</a>
+		</dd>
+	</dl>
 </main>
+
+<aside id="leafs">
+</aside>
 
 <script language="JavaScript1.2" type="text/JavaScript">
 void function () {
 	let timeout = 200
-	let spacing = 50
+	let spacing = 100
 	let lastX = 0
 	let lastY = 0
 	let limit = 10
@@ -51,9 +185,6 @@ void function () {
 		"💙",
 		"💕",
 		"💛",
-		"\u2603\ufe0e",
-		"\u2603\ufe0f",
-		'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 297"><path d="M29.5 102.7c-2.5-.3-5.4-1.2-7-2-5.5-2.8-6.9-10.2-2.9-15 .8-1 3.4-2.9 4.3-3.2l-.7-1.1a8.3 8.3 0 0 1-1.6-9.4c1.8-3.8 5.8-6.3 10.7-6.8l1.7-.1 2.4-2.4c3-2.7 5.5-4.7 6-4.7.8 0 6 2.8 7.1 3.8l1 .8L50 66c-.3 1.9-.7 4.1-1 5-.3 1.6-.3 1.8.1 2.8.6 1.4.6 4 0 5.2-.2.6-.9 1.5-1.4 2.2l-1.1 1.1 1.4.7c1.6.8 3.8 3 4.6 4.5a11 11 0 0 1 0 8.6c-1.2 2.7-4.3 5-8.3 6a49 49 0 0 1-14.8.7zm14.2-2c4-1.1 6.4-2.7 7.6-5.4.5-1.2.7-1.9.7-3.7 0-2 0-2.4-.8-3.7-1.3-2.3-3.5-4-6.9-5.2-.5-.1-.5-.2.2-.6 1.3-.8 3-3 3.4-4 .3-1.2.3-2.6 0-3.7-.3-.7-.8-1-3.8-2.6l-6.5-3.6-3-1.8-1.8.2c-6 .6-10.1 3.8-10.5 8.3-.2 2.7.9 5 3.3 6.8l1.1.9-1.8 1c-3.8 1.8-5.8 4.4-6 7.7-.4 4.4 2 7.7 6.5 9 3 1 4.5 1 10.5 1a32 32 0 0 0 7.8-.6zM30.2 80.5v-.8h10.5v1.6H30.2zm.6-4.7c-.7-.7-.2-2.2.8-2.2.8 0 1.2.5 1.2 1.4 0 1-1.2 1.6-2 .8zm7.9.1c-.4-.4-.4-1.6 0-2 .5-.5 1.5-.4 1.8.3.6 1.3-1 2.6-1.8 1.7zm9-5.2l.7-4.2c.5-3 .5-3.3.2-3.7a32 32 0 0 0-6-3.2c-.7 0-7 5.6-6.6 5.9a84.3 84.3 0 0 0 11.2 6.2c.2 0 .4-.5.5-1z"/></svg>',
 		"🍉",
 		"🍊",
 		"🍌",
@@ -64,29 +195,49 @@ void function () {
 		"🍓",
 		"🥝",
 		"🍅",
-		"🥑"
+		"🥑",
+		"🌈",
+		"🐰",
+		"🦊",
+		"🐭",
+		"🐹",
+		"🐰",
+		"🐦",
+		"🐧",
+		"🦆",
+		"🦆",
+		"🌸",
+		"💮",
+		"🏵",
+		"🌺",
+		"🌻",
+		"🌼",
+		"🍄",
+		"☀",
+		"<3",
+		"🌟",
+		"🏳️‍🌈",
+		":)"
 	]
 
-	let createTrailer = (mouseX, mouseY) => {
+	let createTrailer = () => {
 		let trailer = document.createElement("trail")
-		trailer.innerHTML = getRandom(trailers)
-		with (trailer.style) {
-			position = "absolute"
-			zIndex = 100000000000000000000
-			top = 0
-			left = 0
-			pointerEvents = "none"
-			transform = `translate(${mouseX}px, ${mouseY}px)`
-			fontSize = `${spacing}px`
-		}
+		trailer.textContent = getRandom(trailers)
 		return trailer
 	}
 
 	let trail = (x, y) => {
 		let trailer = createTrailer(x, y)
 		document.body.append(trailer)
+		trailer.style.opacity = 1
+		trailer.style.transform = `translate(${x}px, ${y}px) scale(1.2)`
 
-		setTimeout(() => trailer.remove(), timeout)
+		setTimeout(() => {
+			trailer.style.transform = `translate(${x}px, ${y}px) scale(0.1)`
+			trailer.style.opacity = 0
+		})
+
+		setTimeout(() => requestAnimationFrame(() => trailer.remove()), timeout)
 
 		if (index++ > limit) {
 			index = 0
@@ -117,89 +268,322 @@ void function () {
 }()
 
 void function () {
-	let leafmoji = [
-		"🍂",
-		"🍁",
-		"🍃",
-		"🌿",
-		"🍂",
-		"🍁",
-		"☘️",
-		"🍂",
-		"🍁",
-		"🌲"
+	let seasonmoji = {
+		bunny: [
+			"🌱",
+			"🐣",
+			"🌼",
+			"🌷",
+			"🌱",
+			"🌳",
+			"🌾",
+			"🍀",
+			"🍃",
+			"🌈",
+			"🐇",
+			"🐰"
+		],
+		sunny: [
+			"☀",
+			"😎",
+			"🥵",
+			"🏄",
+			"🏊",
+			"🕶",
+			"👕",
+			"👙",
+			"👡",
+			"🐚",
+			"🌻",
+			"🌴",
+			"🍹",
+			"🏝",
+			"☀",
+			"🌞",
+			"🍨",
+			"🍦",
+			"🥄"
+		],
+		leaf: [
+			"🍂",
+			"🍁",
+			"🍃",
+			"🌿",
+			"🍂",
+			"🍁",
+			"☘️",
+			"🍂",
+			"🍁",
+			"🌲"
+		],
+		crincemince: [
+			"🎅",
+			"👶",
+			"👼",
+			"🎅",
+			"🤶",
+			"🧦",
+			"🦌",
+			"🍪",
+			"🥛",
+			"🍷",
+			"🍴",
+			"🌟",
+			"❄",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"⛄",
+			"🔥",
+			"🎄",
+			"🎁",
+			"🔔",
+			"🕯",
+		],
+		snow: [
+			"⛄",
+			"🥶",
+			"🏂",
+			"🧣",
+			"🧤",
+			"🧥",
+			"🌲",
+			"🏔",
+			"🌁",
+			"🌬",
+			"🌂",
+			"☔",
+			"❄",
+			"☃",
+			"⛄",
+			"🌟",
+			"🎿",
+			"🕯",
+		],
+		spook: [
+			"🎃",
+			"😨",
+			"😰",
+			"😱",
+			"🤡",
+			"😈",
+			"👿",
+			"👹",
+			"👺",
+			"💀",
+			"☠",
+			"👻",
+			"👽",
+			"👾",
+			"🤖",
+			"🕵",
+			"👸",
+			"🧙",
+			"🧙‍♀️",
+			"🧙‍♂️",
+			"🧚",
+			"🧚‍♀️",
+			"🧚‍♂️",
+			"🧛",
+			"🧛‍♀️",
+			"🧛‍♂️",
+			"🧜",
+			"🧜‍♀️",
+			"🧜‍♂️",
+			"🧝",
+			"🧝‍♀️",
+			"🧝‍♂️",
+			"🧞",
+			"🧞‍♀️",
+			"🧞‍♂️",
+			"🧟",
+			"🧟‍♀️",
+			"🧟‍♂️",
+			"🕴",
+			"💚",
+			"🖤",
+			"🦄",
+			"🦇",
+			"🦉",
+			"🕷",
+			"🕸",
+			"🥀",
+			"🍫",
+			"🍬",
+			"🍭",
+			"🏚",
+			"🌃",
+			"🛸",
+			"🌕",
+			"🌚",
+			"🌩",
+			"⚡",
+			"🎃",
+			"🔮",
+			"🎭",
+			"🕯",
+			"🗡",
+			"⛓",
+			"⚰",
+			"⚱"
+		],
+		gay: [
+			"🏳️‍🌈",
+			"🌈",
+			"💏",
+			"👨‍❤️‍💋‍👨",
+			"👩‍❤️‍💋‍👩",
+			"👩‍❤️‍💋‍👨",
+			"💖",
+			"♥️",
+			"❤️",
+			"🧡",
+			"💛",
+			"💚",
+			"💙",
+			"💜"
+		],
+		love: [],
+		abe: []
+	}
+
+	seasonmoji.love = [
+		...seasonmoji.gay,
+		"💙",
+		"💜",
+		"💟",
+		"🧡",
+		"💓",
+		"💖",
+		"💔",
+		"💕",
+		"💛",
+		"💚",
+		"💗",
+		"💞",
+		"💝",
+		"🖤",
+		"💘",
+		"❤️",
+		"♥️",
+		"❣️",
+		"🌹",
+		"🥀"
 	]
+
+	seasonmoji.abe = [
+		...seasonmoji.gay,
+		"♂️",
+		"💪",
+		"🎂",
+		"🎁",
+		"🍰",
+		"🎈",
+		"🍾"
+	]
+
+	let hash = location.hash.slice(1)
+
+	let leafmoji = (function (date = new Date()) {
+		let month = date.getMonth() + 1
+		let day = date.getDate()
+		let age = date.getYear() - 101
+
+		switch (month) {
+			case 1:
+				return seasonmoji.snow
+			case 2:
+				switch (day) {
+					case 13:
+						return [...seasonmoji.abe, age, age, age]
+					case 14:
+						return seasonmoji.love
+					default:
+						return seasonmoji.snow
+				}
+			case 3:
+			case 4:
+			case 5:
+				return seasonmoji.bunny
+			case 6:
+				return seasonmoji.gay
+			case 7:
+			case 8:
+				return seasonmoji.sunny
+			case 9:
+				return seasonmoji.leaf
+			case 10:
+				return seasonmoji.spook
+			case 11:
+				return seasonmoji.leaf
+			case 12:
+				return seasonmoji.crincemince
+		}
+	})(hash ? new Date(hash) : new Date())
 
 	let getRandom = items =>
 		items[Math.floor(Math.random() * items.length)]
 
-	let roundum = number => Math.round(Math.random() * number)
+	let roundum = number => Math.floor((Math.random() * number) + 1)
 
-	let getRandomLeaf = () => {
-		let element = document.createElement("leaf")
-		with (element) {
-			textContent = getRandom(leafmoji)
-			with (style) {
-				position = "absolute"
-				top = 0
-				left = 0
-				pointerEvents = "none"
-				fontSize = "2em"
-				display = "none"
-			}
-		}
+	let leafLayer = document.getElementById("leafs")
 
+	let windowHeight = leafLayer.offsetHeight
+	let windowWidth = leafLayer.offsetWidth
+
+	let resetLeaf = ({element}) => {
 		return {
-			y: roundum(window.innerHeight) - 100,
-			x: roundum(window.innerWidth),
-			speed: roundum(5) + 3,
-			steps: Math.random() * 0.1 + 0.05,
+			y: roundum(windowHeight / 2),
+			x: roundum(windowWidth / 1),
+			speed: roundum(5) + 10,
+			steps: Math.random() * 0.2,
 			step: 0,
 			element
 		}
 	}
 
-	let appendLeaf = leaf => (document.body.append(leaf.element), leaf)
+	let getRandomLeaf = () => {
+		let element = document.createElement("leaf")
+		element.textContent = getRandom(leafmoji)
 
-	let leaves = Array.from(Array(20), () => appendLeaf(getRandomLeaf()))
+		return resetLeaf({element})
+	}
 
-	let calculateDrop = speed =>
-		speed * Math.sin(90 * Math.PI / 180)
+	let appendLeaf = leaf => (leafLayer.append(leaf.element), leaf)
 
-	let fall = leaves => {
-		let height = window.innerHeight
-		let width = window.innerWidth
-		let scrollX = window.pageXOffset
-		let scrollY = window.pageYOffset
-
-		let nextLeaves = leaves.map(leaf => {
+	;(function fall (leaves) {
+		let nextLeaves = leaves.map((leaf, i) => {
 			let drift = leaf.speed * Math.cos(leaf.step)
-			let drop = calculateDrop(leaf.speed)
 
 			leaf.x += drift
-			leaf.y += drop
+			leaf.y += leaf.speed
 
-			if (leaf.y > height) {
-				leaf.element.remove()
-				let next = appendLeaf(getRandomLeaf())
-				return next
+			if (leaf.y > windowHeight) {
+				leaf = resetLeaf(leaf)
 			}
 
-			leaf.element.style.transform = `translate(
-				${leaf.x + scrollX}px,
-				${leaf.y + scrollY}px
-			)`
+			requestAnimationFrame(() => {
+				leaf.element.style.opacity = 0
 
-			leaf.element.style.display = "block"
+				leaf.element.style.transform = `translate(
+					${leaf.x}px,
+					${leaf.y}px
+				) translateZ(0)`
+
+				leaf.element.style.opacity = 1
+			})
 
 			leaf.step += leaf.steps
 
 			return leaf
 		})
 
-		requestAnimationFrame(() => fall(nextLeaves))
-	}
-
-	fall(leaves)
+		setTimeout(() => fall(nextLeaves), 50)
+	})(Array.from(Array(5), () => appendLeaf(getRandomLeaf())))
 }()
 </script>
