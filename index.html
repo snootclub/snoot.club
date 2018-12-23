@@ -268,11 +268,15 @@ void function () {
 
 	let trail = (x, y) => {
 		let trailer = createTrailer(x, y)
-		document.body.append(trailer)
 		trailer.style.opacity = 1
 		trailer.style.transform = `translate(${x}px, ${y}px) scale(1.2)`
 
+		requestAnimationFrame(() => {
+			document.body.append(trailer)
+		})
+
 		setTimeout(() => {
+
 			trailer.style.transform = `translate(${x}px, ${y}px) scale(0.1)`
 			trailer.style.opacity = 0
 		})
