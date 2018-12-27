@@ -154,6 +154,13 @@
 		left: 0;
 		font-size: 2em;
 		opacity: 0;
+		width: 2em;
+		height: 2em;
+	}
+
+	svg {
+		max-width: 100%;
+		max-height: 100%;
 	}
 
 	trail {
@@ -161,8 +168,15 @@
 		top: 10px;
 		left: 10px;
 		font-size: 40px;
+		height: 1em;
+		width: 1em;
 		transform: scale(0.1);
 		transition: transform .2s linear, opacity 0.5s ease;
+	}
+
+	trail svg {
+		height: 1em;
+		width: 1em;
 	}
 </style>
 <header class="header">
@@ -235,6 +249,37 @@
 </aside>
 
 <script language="JavaScript1.2" type="text/JavaScript">
+let snootsvg = `<svg
+ xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 135.46666 135.46667"
+ height="512"
+ width="512">
+<g
+	 transform="translate(0,-161.53332)"
+	 id="layer1">
+	<path
+		 id="path3701"
+		 d="M 0.20997659,268.69554 96.072874,269.19453 92.324117,236.05311 46.534296,233.48613 41.79126,197.31898 0.13311056,191.58065 c -0.034966,31.00335 0.18459913,46.1117 0.076866,77.11489 z"
+		 style="fill:#ffee88;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+	<path
+		 id="path4508"
+		 d="m 92.324117,236.05311 15.312923,0.60239 3.96716,31.27052 -15.531326,1.26851 z"
+		 style="fill:#333333;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+	<path
+		 id="path4510"
+		 d="m 19.509358,208.40228 4.767381,0.93344 2.383691,24.03629 h -5.867547 z"
+		 style="fill:#333333;stroke:#000000;stroke-width:0.23453119px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+	<path
+		 style="fill:#333333;stroke:#000000;stroke-width:0.24465533px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+		 d="m 32.004053,210.06413 4.34229,0.77671 3.724113,22.46282 -5.679601,-0.16501 z"
+		 id="path4563" />
+	<path
+		 id="path4565"
+		 d="m 0.13311056,191.58065 41.65814944,5.73833 4.743034,36.16715 61.102746,3.16937 3.30711,29.95042 -14.572144,1.42533 -96.16202941,0.66429"
+		 style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+</g>
+</svg>`
+
 void function () {
 	let timeout = 200
 	let spacing = 100
@@ -281,7 +326,15 @@ void function () {
 		"☀",
 		"<3",
 		"🌟",
-		"🏳️‍🌈",
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
 		":)"
 	]
 
@@ -300,7 +353,7 @@ void function () {
 
 		trailer.dataset.edible = "no"
 
-		trailer.textContent = getRandom(trailers)
+		trailer.innerHTML = getRandom(trailers)
 		trailer.style.top = rando(10, 22)
 		trailer.style.left = rando(10, 22)
 		return trailer
@@ -578,7 +631,7 @@ void function () {
 
 	let hash = location.hash.slice(1)
 
-	let leafmoji = (function (date = new Date()) {
+	let leafmoji = [snootsvg, snootsvg, snootsvg, snootsvg, snootsvg, ...(function (date = new Date()) {
 		let month = date.getMonth() + 1
 		let day = date.getDate()
 		let age = date.getYear() - 101
@@ -613,7 +666,7 @@ void function () {
 			case 12:
 				return seasonmoji.crincemince
 		}
-	})(hash ? new Date(hash) : new Date())
+	})(hash ? new Date(hash) : new Date())]
 
 	let getRandom = items =>
 		items[Math.floor(Math.random() * items.length)]
@@ -626,7 +679,7 @@ void function () {
 	let windowWidth = leafLayer.offsetWidth
 
 	let resetLeaf = ({element}) => {
-		element.textContent = getRandom(leafmoji)
+		element.innerHTML = getRandom(leafmoji)
 		return {
 			y: 0,
 			x: roundum(windowWidth / 1),
