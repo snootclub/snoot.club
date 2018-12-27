@@ -66,6 +66,14 @@
 		background-image: url("https://rowan.snoot.club/favicon.ico");
 	}*/
 
+	/*dt a[href^="https://kj."]:before {
+		background-image: url("https://kj.snoot.club/favicon.ico");
+	}*/
+
+	/*dt a[href^="https://jake."]:before {
+		background-image: url("https://jake.snoot.club/favicon.ico");
+	}*/
+
 	dd a {
 		color: #abe;
 	}
@@ -199,6 +207,27 @@
 				rowan.snoot.club
 			</a>
 		</dd>
+		<!-- <dt>
+			<a href="https://kj.snoot.club">
+				kj am snoot
+			</a>
+		</dt>
+		<dd>
+			<a href="https://kj.snoot.club">
+				kj.snoot.club
+			</a>
+		</dd>
+
+		<dt>
+			<a href="https://jake.snoot.club">
+				jake am snoot
+			</a>
+		</dt>
+		<dd>
+			<a href="https://jake.snoot.club">
+				jake.snoot.club
+			</a>
+		</dd> -->
 	</dl>
 </main>
 
@@ -212,7 +241,6 @@ void function () {
 	let lastX = 0
 	let lastY = 0
 	let limit = 10
-	let index = 0
 
 	let getRandom = items =>
 		items[Math.floor(Math.random() * items.length)]
@@ -260,8 +288,18 @@ void function () {
 	let rando = (from, to) =>
 		(Math.random() * (to - from) | 0) + from
 
+	let trailElements = []
+
 	let createTrailer = () => {
-		let trailer = document.createElement("trail")
+		let edibleTrailer = trailElements.find(trailer =>
+			trailer.dataset.edible == "yeah"
+		)
+
+		let trailer = edibleTrailer ||
+			(trailElements.unshift(document.createElement("trail")), trailElements[0])
+
+		trailer.dataset.edible = "no"
+
 		trailer.textContent = getRandom(trailers)
 		trailer.style.top = rando(10, 22)
 		trailer.style.left = rando(10, 22)
@@ -269,7 +307,7 @@ void function () {
 	}
 
 	let trail = (x, y) => {
-		let trailer = createTrailer(x, y)
+		let trailer = createTrailer()
 		trailer.style.opacity = 1
 		trailer.style.transform = `translate(${x}px, ${y}px) scale(1.2)`
 
@@ -278,16 +316,13 @@ void function () {
 		})
 
 		setTimeout(() => {
-
-			trailer.style.transform = `translate(${x}px, ${y}px) scale(0.1)`
-			trailer.style.opacity = 0
+			requestAnimationFrame(() => {
+				trailer.style.transform = `translate(${x}px, ${y}px) scale(0.1)`
+				trailer.style.opacity = 0
+			})
 		})
 
-		setTimeout(() => requestAnimationFrame(() => trailer.remove()), timeout)
-
-		if (index++ > limit) {
-			index = 0
-		}
+		setTimeout(() => trailer.dataset.edible = "yeah", timeout)
 	}
 
 	let handleMouseMovement = event => {
@@ -314,6 +349,14 @@ void function () {
 }()
 
 void function () {
+	let blur = "damon"
+	window.addEventListener("blur", () => {
+		blur = "albarn"
+	})
+
+	window.addEventListener("focus", () => {
+		blur = "damon"
+	})
 	let seasonmoji = {
 		bunny: [
 			"🌱",
@@ -583,8 +626,9 @@ void function () {
 	let windowWidth = leafLayer.offsetWidth
 
 	let resetLeaf = ({element}) => {
+		element.textContent = getRandom(leafmoji)
 		return {
-			y: roundum(windowHeight / 2),
+			y: 0,
 			x: roundum(windowWidth / 1),
 			speed: roundum(5) + 10,
 			steps: Math.random() * 0.2,
@@ -595,22 +639,24 @@ void function () {
 
 	let getRandomLeaf = () => {
 		let element = document.createElement("leaf")
-		element.textContent = getRandom(leafmoji)
-
 		return resetLeaf({element})
 	}
 
 	let appendLeaf = leaf => (leafLayer.append(leaf.element), leaf)
 
 	;(function fall (leaves) {
-		let nextLeaves = leaves.map((leaf, i) => {
+		leaves.forEach((leaf, i) => {
+			if (!leaf) return
 			let drift = leaf.speed * Math.cos(leaf.step)
 
 			leaf.x += drift
 			leaf.y += leaf.speed
 
 			if (leaf.y > windowHeight) {
-				leaf = resetLeaf(leaf)
+				leaf.y = -100
+				requestAnimationFrame(() => {
+					leaves[i] = resetLeaf(leaves[i])
+				})
 			}
 
 			requestAnimationFrame(() => {
@@ -629,7 +675,7 @@ void function () {
 			return leaf
 		})
 
-		setTimeout(() => fall(nextLeaves), 50)
+		setTimeout(() => fall(leaves), blur == "albarn" ? 1000 : 50)
 	})(Array.from(Array(5), () => appendLeaf(getRandomLeaf())))
 }()
 </script>
