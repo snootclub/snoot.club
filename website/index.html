@@ -1,0 +1,739 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>snootclub — where you am snoot</title>
+<meta name=viewport content=width=device-width,initial-scale=1>
+<link rel="shortcut icon" href="https://snoot.club/favicon.ico">
+<link rel="shortcut icon" href="favicon.ico">
+<style>
+	* {
+		scrollbar-color: #cc3669 #ffe9ed;
+	}
+
+	::selection {
+		background: #ffee66;
+	}
+
+	body {
+		text-align: center;
+		background: #ffeeee;
+		color: #ee4466;
+		font-family: avenir next, sans-serif;
+		font-size: 2em;
+		line-height: 1.4em;
+		width: 80%;
+		margin: 0 auto;
+		padding: 1em;
+		transition: font-size 1s ease-in-out;
+	}
+
+	.header {
+		text-shadow: -2px 2px 2px #ffee66;
+	}
+
+	.header p {
+		color: #ee6688;
+		margin-top: 0;
+		font-size: 0.75em;
+	}
+
+	h1 {
+		margin-bottom: 0;
+	}
+
+	dt a {
+		text-decoration: none;
+		font-weight: bold;
+		color: #444;
+	}
+
+	dt a:before {
+		content: "";
+		display: inline-block;
+		vertical-align: middle;
+		width: 1em;
+		height: 1em;
+		background-image: url("https://snoot.club/favicon.ico");
+		background-size: contain;
+		position: absolute;
+		left: -1.4em;
+	}
+
+	dt a[href^="https://abe."]:before {
+		background-image: url("https://abe.snoot.club/favicon.ico");
+	}
+
+	dt a[href^="https://chee."]:before {
+		background-image: url("https://chee.snoot.club/favicon.ico");
+	}
+
+	/*dt a[href^="https://rowan."]:before {
+		background-image: url("https://rowan.snoot.club/favicon.ico");
+	}*/
+
+	/*dt a[href^="https://kj."]:before {
+		background-image: url("https://kj.snoot.club/favicon.ico");
+	}*/
+
+	/*dt a[href^="https://jake."]:before {
+		background-image: url("https://jake.snoot.club/favicon.ico");
+	}*/
+
+	dd a {
+		color: #abe;
+	}
+
+	main {
+		margin-top: 1em;
+		border: 2px dashed currentColor;
+		padding: 2em;
+		display: inline-block;
+		background: white;
+		z-index: 0;
+	}
+
+	dl {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+	}
+
+	dt {
+		text-align: right;
+		position: relative;
+		line-height: 0.8;
+		margin-bottom: 1em;
+	}
+
+	dd {
+		text-align: left;
+		margin-bottom: 1em;
+	}
+
+	@media (max-width: 769px) {
+		dl {
+			display: grid;
+			grid-template-columns: 1fr;
+		}
+
+		dt {
+			text-align: left;
+			position: relative;
+			margin: 0;
+		}
+
+		dd {
+			text-align: left;
+			margin: 0 0 1em 0;
+		}
+	}
+
+	@media (max-width: 500px) {
+		body {
+			font-size: 1.4em;
+			padding: 0.5em;
+		}
+	}
+
+	@media (max-width: 350px) {
+		body {
+			font-size: 1em;
+			margin: 0 auto;
+			padding: 0;
+		}
+	}
+
+	#leafs {
+		position: absolute;
+		overflow: hidden;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+	}
+
+	leaf {
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 2em;
+		opacity: 0;
+		width: 2em;
+		height: 2em;
+	}
+
+	svg {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	trail {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		font-size: 40px;
+		height: 1em;
+		width: 1em;
+		transform: scale(0.1);
+		transition: transform .2s linear, opacity 0.5s ease;
+	}
+
+	trail svg {
+		height: 1em;
+		width: 1em;
+	}
+</style>
+<header class="header">
+	<h1>snoot.club</h1>
+	<p>
+		<em>where you am snoot</em>
+	</p>
+</header>
+
+<main>
+	<header>
+		<h2>sites in this webring</h2>
+	</header>
+	<dl>
+		<dt>
+			<a href="https://abe.snoot.club">
+				abe's shop
+			</a>
+		</dt>
+		<dd>
+			<a href="https://abe.snoot.club">
+				abe.snoot.club
+			</a>
+		</dd>
+		<dt>
+			<a href="https://chee.snoot.club">
+				chee's boops and deets
+			</a>
+		</dt>
+		<dd>
+			<a href="https://chee.snoot.club">
+				chee.snoot.club
+			</a>
+		</dd>
+		<dt>
+			<a href="https://rowan.snoot.club">
+				rowan's personal website
+			</a>
+		</dt>
+		<dd>
+			<a href="https://rowan.snoot.club">
+				rowan.snoot.club
+			</a>
+		</dd>
+		<dt>
+			<a href="https://kj.snoot.club">
+				kj's source of nature
+			</a>
+		</dt>
+		<dd>
+			<a href="https://kj.snoot.club">
+				kj.snoot.club
+			</a>
+		</dd>
+
+		<!--
+		<dt>
+			<a href="https://jake.snoot.club">
+				jake am snoot
+			</a>
+		</dt>
+		<dd>
+			<a href="https://jake.snoot.club">
+				jake.snoot.club
+			</a>
+		</dd> -->
+	</dl>
+</main>
+
+<aside id="leafs">
+</aside>
+
+<script language="JavaScript1.2" type="text/JavaScript">
+let snootsvg = `<svg
+ xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 135.46666 135.46667"
+ height="512"
+ width="512">
+<g
+	 transform="translate(0,-161.53332)"
+	 id="layer1">
+	<path
+		 id="path3701"
+		 d="M 0.20997659,268.69554 96.072874,269.19453 92.324117,236.05311 46.534296,233.48613 41.79126,197.31898 0.13311056,191.58065 c -0.034966,31.00335 0.18459913,46.1117 0.076866,77.11489 z"
+		 style="fill:#ffee88;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+	<path
+		 id="path4508"
+		 d="m 92.324117,236.05311 15.312923,0.60239 3.96716,31.27052 -15.531326,1.26851 z"
+		 style="fill:#333333;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+	<path
+		 id="path4510"
+		 d="m 19.509358,208.40228 4.767381,0.93344 2.383691,24.03629 h -5.867547 z"
+		 style="fill:#333333;stroke:#000000;stroke-width:0.23453119px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+	<path
+		 style="fill:#333333;stroke:#000000;stroke-width:0.24465533px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+		 d="m 32.004053,210.06413 4.34229,0.77671 3.724113,22.46282 -5.679601,-0.16501 z"
+		 id="path4563" />
+	<path
+		 id="path4565"
+		 d="m 0.13311056,191.58065 41.65814944,5.73833 4.743034,36.16715 61.102746,3.16937 3.30711,29.95042 -14.572144,1.42533 -96.16202941,0.66429"
+		 style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+</g>
+</svg>`
+
+void function () {
+	let timeout = 200
+	let spacing = 100
+	let lastX = 0
+	let lastY = 0
+	let limit = 10
+
+	let getRandom = items =>
+		items[Math.floor(Math.random() * items.length)]
+
+	let trailers = [
+		"❤️",
+		"💙",
+		"💕",
+		"💛",
+		"🍉",
+		"🍊",
+		"🍌",
+		"🍍",
+		"🍐",
+		"🍑",
+		"🍒",
+		"🍓",
+		"🥝",
+		"🍅",
+		"🥑",
+		"🌈",
+		"🐰",
+		"🦊",
+		"🐭",
+		"🐹",
+		"🐰",
+		"🐦",
+		"🐧",
+		"🦆",
+		"🦆",
+		"🌸",
+		"💮",
+		"🏵",
+		"🌺",
+		"🌻",
+		"🌼",
+		"🍄",
+		"☀",
+		"<3",
+		"🌟",
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		snootsvg,
+		":)"
+	]
+
+	let rando = (from, to) =>
+		(Math.random() * (to - from) | 0) + from
+
+	let trailElements = []
+
+	let createTrailer = () => {
+		let edibleTrailer = trailElements.find(trailer =>
+			trailer.dataset.edible == "yeah"
+		)
+
+		let trailer = edibleTrailer ||
+			(trailElements.unshift(document.createElement("trail")), trailElements[0])
+
+		trailer.dataset.edible = "no"
+
+		trailer.innerHTML = getRandom(trailers)
+		trailer.style.top = rando(10, 22)
+		trailer.style.left = rando(10, 22)
+		return trailer
+	}
+
+	let trail = (x, y) => {
+		let trailer = createTrailer()
+		trailer.style.opacity = 1
+		trailer.style.transform = `translate(${x}px, ${y}px) scale(1.2)`
+
+		requestAnimationFrame(() => {
+			document.body.append(trailer)
+		})
+
+		setTimeout(() => {
+			requestAnimationFrame(() => {
+				trailer.style.transform = `translate(${x}px, ${y}px) scale(0.1)`
+				trailer.style.opacity = 0
+			})
+		})
+
+		setTimeout(() => trailer.dataset.edible = "yeah", timeout)
+	}
+
+	let handleMouseMovement = event => {
+		let x = event.pageX
+		let y = event.pageY
+
+		let limitX = spacing + lastX
+		let limitY = spacing + lastY
+
+		if (
+			x > limitX ||
+			x < limitX ||
+			y > limitY ||
+			y < limitY
+		) {
+			trail(x, y)
+		}
+
+		lastX = x,
+		lastY = y
+	}
+
+	window.addEventListener("mousemove", handleMouseMovement)
+}()
+
+void function () {
+	let blur = "damon"
+	window.addEventListener("blur", () => {
+		blur = "albarn"
+	})
+
+	window.addEventListener("focus", () => {
+		blur = "damon"
+	})
+	let seasonmoji = {
+		bunny: [
+			"🌱",
+			"🐣",
+			"🌼",
+			"🌷",
+			"🌱",
+			"🌳",
+			"🌾",
+			"🍀",
+			"🍃",
+			"🌈",
+			"🐇",
+			"🐰"
+		],
+		sunny: [
+			"☀",
+			"😎",
+			"🥵",
+			"🏄",
+			"🏊",
+			"🕶",
+			"👕",
+			"👙",
+			"👡",
+			"🐚",
+			"🌻",
+			"🌴",
+			"🍹",
+			"🏝",
+			"☀",
+			"🌞",
+			"🍨",
+			"🍦",
+			"🥄"
+		],
+		leaf: [
+			"🍂",
+			"🍁",
+			"🍃",
+			"🌿",
+			"🍂",
+			"🍁",
+			"☘️",
+			"🍂",
+			"🍁",
+			"🌲"
+		],
+		crincemince: [
+			"🎅",
+			"👶",
+			"👼",
+			"🎅",
+			"🤶",
+			"🧦",
+			"🦌",
+			"🍪",
+			"🥛",
+			"🍷",
+			"🍴",
+			"🌟",
+			"❄",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"☃",
+			"⛄",
+			"🔥",
+			"🎄",
+			"🎁",
+			"🔔",
+			"🕯",
+		],
+		snow: [
+			"⛄",
+			"🥶",
+			"🏂",
+			"🧣",
+			"🧤",
+			"🧥",
+			"🌲",
+			"🏔",
+			"🌁",
+			"🌬",
+			"🌂",
+			"☔",
+			"❄",
+			"☃",
+			"⛄",
+			"🌟",
+			"🎿",
+			"🕯",
+		],
+		spook: [
+			"🎃",
+			"😨",
+			"😰",
+			"😱",
+			"🤡",
+			"😈",
+			"👿",
+			"👹",
+			"👺",
+			"💀",
+			"☠",
+			"👻",
+			"👽",
+			"👾",
+			"🤖",
+			"🕵",
+			"👸",
+			"🧙",
+			"🧙‍♀️",
+			"🧙‍♂️",
+			"🧚",
+			"🧚‍♀️",
+			"🧚‍♂️",
+			"🧛",
+			"🧛‍♀️",
+			"🧛‍♂️",
+			"🧜",
+			"🧜‍♀️",
+			"🧜‍♂️",
+			"🧝",
+			"🧝‍♀️",
+			"🧝‍♂️",
+			"🧞",
+			"🧞‍♀️",
+			"🧞‍♂️",
+			"🧟",
+			"🧟‍♀️",
+			"🧟‍♂️",
+			"🕴",
+			"💚",
+			"🖤",
+			"🦄",
+			"🦇",
+			"🦉",
+			"🕷",
+			"🕸",
+			"🥀",
+			"🍫",
+			"🍬",
+			"🍭",
+			"🏚",
+			"🌃",
+			"🛸",
+			"🌕",
+			"🌚",
+			"🌩",
+			"⚡",
+			"🎃",
+			"🔮",
+			"🎭",
+			"🕯",
+			"🗡",
+			"⛓",
+			"⚰",
+			"⚱"
+		],
+		gay: [
+			"🏳️‍🌈",
+			"🌈",
+			"💏",
+			"👨‍❤️‍💋‍👨",
+			"👩‍❤️‍💋‍👩",
+			"👩‍❤️‍💋‍👨",
+			"💖",
+			"♥️",
+			"❤️",
+			"🧡",
+			"💛",
+			"💚",
+			"💙",
+			"💜"
+		],
+		love: [],
+		abe: []
+	}
+
+	seasonmoji.love = [
+		...seasonmoji.gay,
+		"💙",
+		"💜",
+		"💟",
+		"🧡",
+		"💓",
+		"💖",
+		"💔",
+		"💕",
+		"💛",
+		"💚",
+		"💗",
+		"💞",
+		"💝",
+		"🖤",
+		"💘",
+		"❤️",
+		"♥️",
+		"❣️",
+		"🌹",
+		"🥀"
+	]
+
+	seasonmoji.abe = [
+		...seasonmoji.gay,
+		"♂️",
+		"💪",
+		"🎂",
+		"🎁",
+		"🍰",
+		"🎈",
+		"🍾"
+	]
+
+	let hash = location.hash.slice(1)
+
+	let leafmoji = [snootsvg, snootsvg, snootsvg, snootsvg, snootsvg, ...(function (date = new Date()) {
+		let month = date.getMonth() + 1
+		let day = date.getDate()
+		let age = date.getYear() - 101
+
+		switch (month) {
+			case 1:
+				return seasonmoji.snow
+			case 2:
+				switch (day) {
+					case 13:
+						return [...seasonmoji.abe, age, age, age]
+					case 14:
+						return seasonmoji.love
+					default:
+						return seasonmoji.snow
+				}
+			case 3:
+			case 4:
+			case 5:
+				return seasonmoji.bunny
+			case 6:
+				return seasonmoji.gay
+			case 7:
+			case 8:
+				return seasonmoji.sunny
+			case 9:
+				return seasonmoji.leaf
+			case 10:
+				return seasonmoji.spook
+			case 11:
+				return seasonmoji.leaf
+			case 12:
+				return seasonmoji.crincemince
+		}
+	})(hash ? new Date(hash) : new Date())]
+
+	let getRandom = items =>
+		items[Math.floor(Math.random() * items.length)]
+
+	let roundum = number => Math.floor((Math.random() * number) + 1)
+
+	let leafLayer = document.getElementById("leafs")
+
+	let windowHeight = leafLayer.offsetHeight
+	let windowWidth = leafLayer.offsetWidth
+
+	let resetLeaf = ({element}) => {
+		element.innerHTML = getRandom(leafmoji)
+		return {
+			y: 0,
+			x: roundum(windowWidth / 1),
+			speed: roundum(5) + 10,
+			steps: Math.random() * 0.2,
+			step: 0,
+			element
+		}
+	}
+
+	let getRandomLeaf = () => {
+		let element = document.createElement("leaf")
+		return resetLeaf({element})
+	}
+
+	let appendLeaf = leaf => (leafLayer.append(leaf.element), leaf)
+
+	;(function fall (leaves) {
+		leaves.forEach((leaf, i) => {
+			if (!leaf) return
+			let drift = leaf.speed * Math.cos(leaf.step)
+
+			leaf.x += drift
+			leaf.y += leaf.speed
+
+			if (leaf.y > windowHeight) {
+				leaf.y = -100
+				requestAnimationFrame(() => {
+					leaves[i] = resetLeaf(leaves[i])
+				})
+			}
+
+			requestAnimationFrame(() => {
+				leaf.element.style.opacity = 0
+
+				leaf.element.style.transform = `translate(
+					${leaf.x}px,
+					${leaf.y}px
+				) translateZ(0)`
+
+				leaf.element.style.opacity = 1
+			})
+
+			leaf.step += leaf.steps
+
+			return leaf
+		})
+
+		setTimeout(() => fall(leaves), blur == "albarn" ? 1000 : 50)
+	})(Array.from(Array(5), () => appendLeaf(getRandomLeaf())))
+}()
+</script>
