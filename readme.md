@@ -1,1 +1,1 @@
-Any further development on tarballs will happen on https://git.snoot.club/snootclub/tarballs
+Any further development on snoot.club will happen on https://git.snoot.club/snootclub/snoot.club
